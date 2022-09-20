@@ -1,0 +1,17 @@
+{
+  "name": "project/marketplace",
+  "description": "E-Commerce App",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "app\\": "./"
+    }
+  },
+  "authors": [
+    {
+      "name": "Barla Ankit",
+      "email": "barla.x88@gmail.com"
+    }
+  ],
+  "require": {}
+}
