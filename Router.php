@@ -49,7 +49,7 @@ class Router {
         include_once __DIR__."/views/$view.php";
         //get the arraybuffer content and delete the buffer
         $content = ob_get_clean();
-
+        $cssFile = '/css/' . "$view" . '.css';
         //simply contains the html skelton, $content will display inside this file
         include_once __DIR__."/views/_layout.php";
     }

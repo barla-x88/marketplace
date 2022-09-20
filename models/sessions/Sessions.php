@@ -11,9 +11,10 @@ class Sessions {
 
     public static function checkPreviousSession() {
         session_start();
-        if ($_SESSION['username']) {
+        if (!empty($_SESSION) && $_SESSION['username']) {
             return true;
         } else {
+            setcookie("PHPSESSID", "", 0);
             session_destroy();
             return false;
         }

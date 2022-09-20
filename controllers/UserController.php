@@ -12,21 +12,27 @@ class UserController {
     static public function login(\app\Router $router) {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            //Initiates the new connection
-            $database = new Database();
-            self::$validationStatus = $database->validateUser($_POST['username'], $_POST['password']);
+            self::$validationStatus = $router->dbConnection->validateUser($_POST['username'], $_POST['password']);
         }
 
         if (self::$validationStatus) {
             //create a new session
             new Sessions($_POST['username']);
+
+            //get user data
+            $userData = $router->dbConnection->getUserData($_SESSION['username']);
+
             //render user profile
-            $router->renderView('users/profile');
+            $router->renderView('users/profile', ['userData' => $userData]);
         } else {
             //check if the previous session is present
             $status = Sessions::checkPreviousSession();
             if($status) {
-                $router->renderView('users/profile');
+            //get user data
+            $userData = $router->dbConnection->getUserData($_SESSION['username']);
+
+            //render user profile
+            $router->renderView('users/profile', ['userData' => $userData]);
             } else {
 
                 //redirect to login UI
@@ -46,5 +52,16 @@ class UserController {
         } else {
             self::showUI($router);
         }
+    }
+
+    static public function logout() {
+        session_start();
+        $_SESSION = array();
+        setcookie("PHPSESSID", "", 0);
+        session_destroy();
+    }
+
+    static public function register(\app\Router $router) {
+        $router->renderView('users/register');
     }
 }

@@ -25,4 +25,14 @@ class Database {
             return false;
         }
     }
+
+    public function getUserData(string $username) : array {
+        $statement = $this->pdo->prepare('SELECT username, phone, email FROM users WHERE username = :username');
+        $statement->bindValue(':username', $username);
+        $statement->execute();
+        $userData = $statement->fetch(PDO::FETCH_ASSOC);
+       
+        return $userData;
+    }
+
 }
