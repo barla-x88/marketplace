@@ -2,6 +2,7 @@
 
 namespace app;
 use PDO;
+use app\models\users\User;
 
 class Database {
     public PDO $pdo;
@@ -24,5 +25,13 @@ class Database {
         } else {
             return false;
         }
+    }
+
+    public function getUserData($username) {
+        $statement = $this->pdo->prepare('SELECT username, phone, email FROM users WHERE username = :username');
+        $statement->bindValue(':username', $username);
+        $statement->execute();
+        $userData = $statement->fetch(PDO::FETCH_ASSOC);
+        return $userData;
     }
 }

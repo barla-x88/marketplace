@@ -18,4 +18,7 @@ $router->get('/user/login', [UserController::class, 'login']);
 //if the session is present redirect to profile page
 $router->get('/user/profile', [UserController::class, 'login']);
 
+//logout
+// $router->get('/user/logout', [UserController::class, 'logout']);
+
 $router->resolve();

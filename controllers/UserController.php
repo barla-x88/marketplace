@@ -4,29 +4,41 @@ namespace app\controllers;
 
 use app\Database;
 use app\models\sessions\Sessions;
+use app\models\users\User;
 
 class UserController {
+    //user validation status
     static public bool $validationStatus = false;
-    // static public Sessions $currentSession;
 
     static public function login(\app\Router $router) {
 
+        //validate username & password
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            //Initiates the new connection
-            $database = new Database();
-            self::$validationStatus = $database->validateUser($_POST['username'], $_POST['password']);
+            self::$validationStatus = $router->dbConnection->validateUser($_POST['username'], $_POST['password']);
         }
 
+        //if user is validated, store information in session
         if (self::$validationStatus) {
             //create a new session
             new Sessions($_POST['username']);
-            //render user profile
-            $router->renderView('users/profile');
+
+            //get user data
+            $userData = $router->dbConnection->getUserData($_SESSION['username']);
+            
+            // render user profile using received data
+            $router->renderView('users/profile', ['userData' => $userData]);
+
         } else {
+
             //check if the previous session is present
             $status = Sessions::checkPreviousSession();
+
             if($status) {
-                $router->renderView('users/profile');
+            //get user data
+            $userData = $router->dbConnection->getUserData($_SESSION['username']);
+ 
+            // render user profile
+            $router->renderView('users/profile', ['userData' => $userData]);
             } else {
 
                 //redirect to login UI
@@ -35,10 +47,12 @@ class UserController {
         }
     }
 
+    //shows login page
     static public function showUI(\app\Router $router) {
         $router->renderView('users/index');
     }
 
+    //redirects logged to profile
     static public function redirect(\app\Router $router) {
         $isLoggedIn = Sessions::checkPreviousSession();
         if ($isLoggedIn) {
@@ -46,5 +60,11 @@ class UserController {
         } else {
             self::showUI($router);
         }
+    }
+
+    static public function logout() {
+        session_start();
+        $_SESSION = array();
+        session_destroy();
     }
 }

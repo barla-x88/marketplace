@@ -11,7 +11,7 @@ class Sessions {
 
     public static function checkPreviousSession() {
         session_start();
-        if ($_SESSION['username']) {
+        if (!empty($_SESSION) && $_SESSION['username']) {
             return true;
         } else {
             session_destroy();
