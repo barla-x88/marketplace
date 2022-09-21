@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap');
+
+nav {
+  display: flex;
+  height: 120px;
+  /* background-color: hsl(0, 0%, 28%); */
+  background-color: rgba(196, 196, 196, 0.28);
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav > a {
+  border: 1px solid #efefef;
+  background-color: #efefef;
+  border-radius: 25px 5px 25px 5px;
+  box-sizing: border-box;
+  text-align: center;
+  width: 230px;
+  margin-right: auto;
+  margin-left: 35px;
+  color: #f66b0e;
+  font-size: 40px;
+  font-family: 'Calligraffitti', cursive;
+  transition: all 0.25s;
+}
+
+nav a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav ul {
+  margin-right: 35px;
+  list-style: none;
+  display: flex;
+  width: 604px;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 25px;
+  color: #ffffff;
+}
+
+nav ul a {
+  color: inherit;
+  padding: 12px;
+}
+
+.action {
+  background-color: rgba(246, 107, 14, 0.68);
+}
+
+div.header {
+  /* using linear gradient to put use color and image together */
+  /* https://stackoverflow.com/questions/64773693/background-image-along-with-background-color-problem */
+  background: linear-gradient(rgba(21, 19, 19, 0.7), rgba(21, 19, 19, 0.7)),
+    url('/img/site/ella-jardim-jmGH6r8K5Ak-unsplash.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+.search {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.search form {
+  margin: 0 20%;
+  height: 120px;
+}
+
+.search p {
+  color: #ffffff;
+  text-align: center;
+}
