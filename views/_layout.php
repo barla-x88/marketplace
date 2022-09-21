@@ -9,6 +9,6 @@
     <link rel="stylesheet" href="<?php echo $cssFile?>">
 </head>
 <body>
-    <?php echo $content; ?>
+    <?php echo $content . "\n"; ?>
 </body>
 </html>
