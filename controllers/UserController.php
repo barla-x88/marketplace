@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\Database;
 use app\models\sessions\Sessions;
+use app\models\user\User;
 
 class UserController {
     static public bool $validationStatus = false;
@@ -62,6 +63,24 @@ class UserController {
     }
 
     static public function register(\app\Router $router) {
+        $userInfo = [];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $userInfo['firstname'] = $_POST['firstname'];
+            $userInfo['username'] = $_POST['username'];
+            $userInfo['lastname'] = $_POST['lastname'];
+            $userInfo['password'] = $_POST['password'];
+            $userInfo['phone'] = $_POST['phone'];
+            $userInfo['email'] = $_POST['email'];
+            $userInfo['address'] = $_POST['address'];
+            $userInfo['state'] = $_POST['state'];
+            $userInfo['pin'] = $_POST['pin'];
+            $userInfo['type'] = $_POST['type'] ?? 'USER';
+        
+            $user = new User($userInfo);
+            $router->dbConnection->addUser($user);
+            // header('Location: /user');
+
+        }
         $router->renderView('users/register');
     }
 }

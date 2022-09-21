@@ -4,6 +4,7 @@
 body {
   background-color: #112b3c;
 }
+
 nav {
   display: flex;
   height: 120px;
@@ -50,32 +51,40 @@ nav ul a {
   padding: 12px;
 }
 
-.action {
-  background-color: rgba(246, 107, 14, 0.68);
-}
-
-div.header {
-  /* using linear gradient to put use color and image together */
-  /* https://stackoverflow.com/questions/64773693/background-image-along-with-background-color-problem */
-  background: linear-gradient(rgba(21, 19, 19, 0.7), rgba(21, 19, 19, 0.7)),
-    url('/img/site/ella-jardim-jmGH6r8K5Ak-unsplash.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-  height: 100vh;
-}
-
-.search {
-  height: 70vh;
+.form-container {
+  /* height: 80vh; */
+  margin-bottom: 45px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-}
-.search form {
-  margin: 0 20%;
-  height: 120px;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.search p {
+form {
+  padding: 30px;
+  border: 1px solid #efefef;
+  border-radius: 15px;
+  background-color: #efefef;
+  margin-top: 50px;
+  width: 80%;
+}
+
+form > div {
+  margin-top: 20px;
+}
+
+form input[type='submit'] {
+  border-radius: 15px;
+  background-color: #f66b0e;
+  width: 140px;
+  height: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   color: #ffffff;
-  text-align: center;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+input:invalid {
+  border-color: rgb(228, 94, 94);
 }
