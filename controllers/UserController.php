@@ -60,6 +60,7 @@ class UserController {
         $_SESSION = array();
         setcookie("PHPSESSID", "", 0);
         session_destroy();
+        header('Location: /');
     }
 
     static public function register(\app\Router $router) {
