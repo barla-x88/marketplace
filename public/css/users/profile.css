@@ -26,7 +26,7 @@ nav > a {
   color: #f66b0e;
   font-size: 40px;
   font-family: 'Calligraffitti', cursive;
-  transition: all 0.25s;
+  transition: color 0.25s;
 }
 
 nav a:hover {
@@ -49,4 +49,82 @@ nav ul {
 nav ul a {
   color: inherit;
   padding: 12px;
+}
+
+.profile {
+  display: grid;
+  grid-template-rows: 70vh;
+  grid-template-columns: 30% 70%;
+  background-color: #efefef;
+  margin: 30px;
+  border-radius: 20px;
+}
+
+.user-img,
+.user-details {
+  margin: 20px;
+
+  display: flex;
+
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.user-img {
+  align-items: center;
+  border: 2px solid #b5d0e1;
+  border-radius: 20px;
+}
+
+.circle {
+  display: flex;
+  border: 1px solid #ffffff;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgba(231, 176, 99, 0.819);
+  color: #112b3c;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 50px;
+}
+
+.user-img > div:first-child,
+.user-details > div:first-child {
+  margin-top: 70px;
+}
+
+.user-img * {
+  margin: 10px auto;
+}
+
+.user-img p {
+  text-transform: uppercase;
+  font-size: 18px;
+  text-align: center;
+}
+
+.user-details h1 {
+  border-style: solid;
+  border-width: 2px 0;
+  border-color: #007bff;
+  background-color: rgba(231, 176, 99, 0.819);
+  padding: 5px 20px;
+  color: #112b3c;
+}
+
+.user-details > p {
+  /* height: 300px; */
+  padding: 20px;
+}
+
+.user-details p > span:not(.email) {
+  text-transform: capitalize;
+}
+
+.user-details p > span {
+  display: block;
+  margin-top: 12px;
+  font-size: 18px;
 }

@@ -25,7 +25,7 @@ class User {
         $this->email = $userInfo['email'];
         $this->address = $userInfo['address'];
         $this->state = $userInfo['state'];
-        $this->pin= $userInfo['address'];
+        $this->pin= $userInfo['pin'];
         $this->type = $userInfo['type'];
     }
 }

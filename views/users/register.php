@@ -12,39 +12,39 @@
     <h1>Register now! It only takes few Seconds.</h1>
     <div class="form-row">
         <div class="col">
-        <input type="text" name="firstname" pattern="[a-zA-Z]+" class="form-control" placeholder="First name">
+        <input type="text" required name="firstname" maxlength="15" pattern="[a-zA-Z]+" class="form-control" placeholder="First name">
         </div>
         <div class="col">
-        <input type="text" name="lastname" pattern="[a-zA-Z]+" class="form-control" placeholder="Last name">
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="col">
-        <input type="tel" name="phone" pattern="[0-9]+" class="form-control" placeholder="Phone">
-        </div>
-        <div class="col">
-        <input type="email" name="email" class="form-control" placeholder="Email">
+        <input type="text" name="lastname" maxlength="15" pattern="[a-zA-Z]+" class="form-control" placeholder="Last name">
         </div>
     </div>
     <div class="form-row">
         <div class="col">
-        <input type="text" name="address" class="form-control" placeholder="Address">
+        <input type="tel" required name="phone" pattern="[0-9]+" minlength="10" maxlength="10" class="form-control" placeholder="Phone">
+        </div>
+        <div class="col">
+        <input type="email" required name="email" class="form-control" maxlength="30" placeholder="Email">
         </div>
     </div>
     <div class="form-row">
         <div class="col">
-        <input type="text" name="state" class="form-control" placeholder="State">
-        </div>
-        <div class="col">
-        <input type="text" name="pin" class="form-control" placeholder="Pin">
+        <input type="text" required name="address" class="form-control" maxlength="150" placeholder="Address">
         </div>
     </div>
     <div class="form-row">
         <div class="col">
-        <input type="text" name="username" class="form-control" placeholder="Username">
+        <input type="text" required name="state" class="form-control" maxlength="20" placeholder="State">
         </div>
         <div class="col">
-        <input type="password" name="password" class="form-control" placeholder="Password">
+        <input type="text" required name="pin" pattern="[0-9]+" class="form-control" maxlength="6" minlength="6" placeholder="Pin">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col">
+        <input type="text" required name="username" pattern="[a-zA-Z0-9_]+" minlength="4" class="form-control" placeholder="Username">
+        </div>
+        <div class="col">
+        <input type="password" required name="password" minlength="5" class="form-control" placeholder="Password">
         </div>
     </div>
     <div class="form-group form-check">
