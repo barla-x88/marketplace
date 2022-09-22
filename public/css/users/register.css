@@ -51,6 +51,10 @@ nav ul a {
   padding: 12px;
 }
 
+.action {
+  background-color: rgba(246, 107, 14, 0.68);
+}
+
 .form-container {
   /* height: 80vh; */
   margin-bottom: 45px;
