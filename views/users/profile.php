@@ -42,3 +42,8 @@
         </p>
     </div>
 </div>
+<?php if($_SESSION['userType'] === 'SELLER'): ?>
+    <div class="userProducts">
+        <p style="background-color: yellow;"><a href="/user/addproduct">Add a Proudct</a></p>
+    </div>
+<?php endif; ?>

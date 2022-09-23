@@ -22,6 +22,8 @@ $router->get('/user/profile', [UserController::class, 'login']);
 $router->get('/user/logout', [UserController::class, 'logout']);
 $router->post('/user/register', [UserController::class, 'register']);
 $router->get('/user/register', [UserController::class, 'register']);
+$router->get('/user/addproduct', [UserController::class, 'addProduct']);
+$router->post('/user/addproduct', [UserController::class, 'addProduct']);
 
 
 //Index pages

@@ -2,16 +2,21 @@
 
 namespace app;
 
+use app\models\product\Product;
 use app\models\user\User;
 use PDO;
 
 class Database {
     public PDO $pdo;
 
+    //this will be used in product class for adding and updating product
+    public static Database $db;
+
     public function __construct()
     {
         $this->pdo = new PDO('mysql:host=localhost;port=3306;dbname=marketplace', 'root', '');
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        self::$db = $this;
     }
 
     public function validateUser($username, $password) {
@@ -54,5 +59,13 @@ class Database {
 
         // Execute the prepared statement.
         $statement->execute();
+    }
+
+    public function addNewProduct(Product $product) {
+
+    }
+
+    public function updateProduct(Product $product) {
+
     }
 }

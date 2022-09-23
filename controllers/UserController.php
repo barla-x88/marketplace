@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\Database;
 use app\models\sessions\Sessions;
 use app\models\user\User;
+use app\Router;
 
 class UserController {
     static public bool $validationStatus = false;
@@ -23,6 +24,10 @@ class UserController {
             //get user data
             $userData = $router->dbConnection->getUserData($_SESSION['username']);
 
+            //saving user type in session
+            //this is used for displaying product add form 
+            $_SESSION['userType'] = $userData['type'];
+            
             //render user profile
             $router->renderView('users/profile', ['userData' => $userData]);
         } else {
@@ -83,5 +88,24 @@ class UserController {
 
         }
         $router->renderView('users/register');
+    }
+
+    static public function addProduct(Router $router) {
+        $isLoggedIn = Sessions::checkPreviousSession();
+
+        if ($isLoggedIn && $_SESSION['userType'] === 'SELLER') {
+            if($_SERVER['REQUEST_METHOD'] === 'POST') {
+                var_dump($_POST);
+                var_dump($_FILES);
+            } else {
+                $router->renderView('users/addproduct');
+            }
+        } else {
+            header('Location: /user');
+        }
+    }
+
+    static public function editProduct() {
+        
     }
 }
