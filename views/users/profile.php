@@ -47,3 +47,8 @@
         <p style="background-color: yellow;"><a href="/user/addproduct">Add a Proudct</a></p>
     </div>
 <?php endif; ?>
+<?php if(!empty($userProducts)): ?>
+    <?php foreach($userProducts as $key=> $value): ?>
+        <?php var_dump($key, $value) ?>
+    <?php endforeach; ?>
+<?php endif; ?> 

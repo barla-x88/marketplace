@@ -62,10 +62,40 @@ class Database {
     }
 
     public function addNewProduct(Product $product) {
+        $statement = $this->pdo->prepare("INSERT INTO products (product_id, product_name, seller_id, product_desc, product_image, product_price, product_category, product_date, product_promoted) VALUES (Null, :product_name, :seller_id, :product_desc, :product_image, :product_price, :product_category, :product_date, :product_promoted)");
 
+        $statement->bindValue(':product_name', $product->product_name);
+        $statement->bindValue(':seller_id', $product->seller_id);
+        $statement->bindValue(':product_desc', $product->product_desc);
+        $statement->bindValue(':product_image', $product->product_image);
+        $statement->bindValue(':product_price', $product->product_price);
+        $statement->bindValue(':product_category', $product->product_category);
+        $statement->bindValue(':product_date', $product->product_date);
+        $statement->bindValue(':product_promoted', $product->product_promoted);
+
+
+        // Execute the prepared statement.
+        $statement->execute();
     }
 
     public function updateProduct(Product $product) {
+
+    }
+
+    //can also be used to get all the products from all sellers
+    public function getProductsBySeller(string $seller=''): array {
+        
+        if ($seller) {
+            $statement = $this->pdo->prepare('SELECT product_id, product_name, seller_id, product_desc, product_image, product_price, product_category, product_date FROM products WHERE seller_id = :seller_id');
+            $statement->bindValue(':seller_id', $seller);
+        } else {
+            $statement = $this->pdo->prepare('SELECT product_id, product_name, seller_id, product_desc, product_image, product_price, product_category, product_date FROM products'); 
+        }
+
+        $statement->execute();
+        $products = $statement->fetch(PDO::FETCH_ASSOC);
+       
+        return $products;
 
     }
 }

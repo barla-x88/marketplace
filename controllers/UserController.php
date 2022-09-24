@@ -28,9 +28,14 @@ class UserController {
             //saving user type in session
             //this is used for displaying product add form 
             $_SESSION['userType'] = $userData['type'];
+
+            $userProducts = [];
+            if ($_SESSION['userType'] === 'SELLER') {
+                $userProducts = $router->dbConnection->getProductsBySeller($_SESSION['username']);
+            }
             
             //render user profile
-            $router->renderView('users/profile', ['userData' => $userData]);
+            $router->renderView('users/profile', ['userData' => $userData, 'userProducts' => $userProducts]);
         } else {
             //check if the previous session is present
             $status = Sessions::checkPreviousSession();
@@ -38,8 +43,13 @@ class UserController {
             //get user data
             $userData = $router->dbConnection->getUserData($_SESSION['username']);
 
+            $userProducts = [];
+            if ($_SESSION['userType'] === 'SELLER') {
+                $userProducts = $router->dbConnection->getProductsBySeller($_SESSION['username']);
+            }
+
             //render user profile
-            $router->renderView('users/profile', ['userData' => $userData]);
+            $router->renderView('users/profile', ['userData' => $userData, 'userProducts' => $userProducts]);
             } else {
 
                 //redirect to login UI
@@ -105,7 +115,7 @@ class UserController {
                 $product_data['product_imgFile'] = $_FILES['product_imgFile'];
 
                 $newProduct = new Product($product_data);
-                $newProduct->saveProduct(false);
+                $newProduct->saveProduct();
             
             } else {
                 $router->renderView('users/addproduct');
