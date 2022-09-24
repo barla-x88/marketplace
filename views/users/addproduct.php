@@ -12,7 +12,7 @@
     <h1>Add a new Product</h1>
     <div class="form-group">
         <label for="product_name">Product Name</label>
-        <input type="text" name="product_name" class="form-control" id="product_name" placeholder="e.g. Mushroom" pattern="[a-zA-Z0-9]+" maxlength="30" required>
+        <input type="text" name="product_name" class="form-control" id="product_name" placeholder="e.g. Mushroom" maxlength="30" required>
     </div>
     <div class="form-group">
         <label for="product_desc">Product Description</label>

@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\Database;
+use app\models\product\Product;
 use app\models\sessions\Sessions;
 use app\models\user\User;
 use app\Router;
@@ -95,8 +96,17 @@ class UserController {
 
         if ($isLoggedIn && $_SESSION['userType'] === 'SELLER') {
             if($_SERVER['REQUEST_METHOD'] === 'POST') {
-                var_dump($_POST);
-                var_dump($_FILES);
+                $product_data = [];
+                $product_data['product_name'] = $_POST['product_name'];
+                $product_data['product_desc'] = $_POST['product_desc'];
+                $product_data['product_category'] = $_POST['product_category'];
+                $product_data['product_price'] = $_POST['product_price'];
+                $product_data['seller_id'] = $_SESSION['username'];
+                $product_data['product_imgFile'] = $_FILES['product_imgFile'];
+
+                $newProduct = new Product($product_data);
+                $newProduct->saveProduct(false);
+            
             } else {
                 $router->renderView('users/addproduct');
             }

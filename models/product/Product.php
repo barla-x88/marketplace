@@ -37,28 +37,33 @@ class Product {
         $currentSeller = $this->seller_id;
         $productName = str_replace(' ', '', $this->product_name);
 
-        //create a dir if doesn't exist
+        //create a directory for user if it doesn't exist
+        if (!is_dir(__DIR__ . "/../../public/img/site/userImg/$currentSeller")) {
+            $created = mkdir(__DIR__ . "/../../public/img/userImg/$currentSeller");
+        }
+
+        //create a dir for product if doesn't exist
         if (!is_dir(__DIR__ . "/../../public/img/site/userImg/$currentSeller" . "/$productName")) {
-            mkdir(__DIR__ . "/../../public/img/site/userImg/$currentSeller" . "/$productName");
+            mkdir(__DIR__ . "/../../public/img/userImg/$currentSeller" . "/$productName");
         }
 
         if ($this->imgFile && $this->imgFile['tmp_name']) {
 
             //used for editing the product
             if ($this->product_image) {
-                unlink(__DIR__ . "/../public/" . $this->product_image);
+                unlink(__DIR__ . "/../../public/" . $this->product_image);
             }
 
-            $this->product_image = "img/userImg/$currentSeller" . "/$productName" . str_replace(' ', '', basename($this->imgFile['name']));
-            move_uploaded_file($this->imgFile['tmp_name'], __DIR__ . "/../public/" . $this->product_image);
+            $this->product_image = "img/userImg/$currentSeller" . "/$productName/" . str_replace(' ', '', basename($this->imgFile['name']));
+            move_uploaded_file($this->imgFile['tmp_name'], __DIR__ . "/../../public/" . $this->product_image);
         }
 
-        $db = Database::$db;
+        // $db = Database::$db;
 
-        if ($update) {
-            $db->addNewProduct($this);
-        } else {
-            $db->updateProduct($this); 
-        }
+        // if ($update) {
+        //     $db->addNewProduct($this);
+        // } else {
+        //     $db->updateProduct($this); 
+        // }
     }
 }
