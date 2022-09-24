@@ -55,12 +55,17 @@ nav ul a {
   padding: 12px;
 }
 
+.page-container {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #efefef;
+}
+
 .profile {
   display: grid;
   grid-template-rows: 70vh;
   grid-template-columns: 30% 70%;
-  background-color: #efefef;
-  margin: 30px;
+  margin: 0 30px;
   border-radius: 20px;
 }
 
@@ -131,4 +136,46 @@ nav ul a {
   display: block;
   margin-top: 12px;
   font-size: 18px;
+}
+
+.user-products {
+  min-height: 60vh;
+  background-color: rgb(38, 38, 38);
+  width: 100%;
+  color: #ffffff;
+
+  /* prevents margin collapsing */
+  border-top: 1px solid;
+}
+
+.user-products > h2 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.products-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 10%;
+  flex: 1 1 auto;
+  gap: 18px;
+  padding-bottom: 35px;
+}
+
+.product {
+  display: flex;
+  background-color: #ffffff;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.btn-success {
+  display: block;
+  width: 300px;
+  margin: 10px auto;
+  /*  */
 }

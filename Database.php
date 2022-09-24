@@ -93,7 +93,7 @@ class Database {
         }
 
         $statement->execute();
-        $products = $statement->fetch(PDO::FETCH_ASSOC);
+        $products = $statement->fetchAll(PDO::FETCH_ASSOC);
        
         return $products;
 
