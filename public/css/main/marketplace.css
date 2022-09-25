@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap');
+
+body {
+  background-color: #112b3c;
+}
+
+nav {
+  display: flex;
+  height: 120px;
+  /* background-color: hsl(0, 0%, 28%); */
+  background-color: rgba(196, 196, 196, 0.28);
+  justify-content: space-around;
+  align-items: center;
+}
+
+.action {
+  background-color: rgba(246, 107, 14, 0.68);
+}
+
+nav > a {
+  border: 1px solid #efefef;
+  background-color: #efefef;
+  border-radius: 25px 5px 25px 5px;
+  box-sizing: border-box;
+  text-align: center;
+  width: 230px;
+  margin-right: auto;
+  margin-left: 35px;
+  color: #f66b0e;
+  font-size: 40px;
+  font-family: 'Calligraffitti', cursive;
+  transition: color 0.25s;
+}
+
+nav a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav ul {
+  margin-right: 35px;
+  list-style: none;
+  display: flex;
+  width: 604px;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 25px;
+  color: #ffffff;
+}
+
+nav ul a {
+  color: inherit;
+  padding: 12px;
+}
+
+.products-container {
+  background-color: rgb(38, 38, 38);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: space-between;
+  margin: 0 10%;
+  flex: 1 0 auto;
+  gap: 100px;
+  padding: 35px;
+  /* align-items: center; */
+  min-height: 70vh;
+}
+
+.product {
+  display: flex;
+  background-color: #ffffff;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  text-align: center;
+  min-width: 250px;
+}
+
+.pagination {
+  margin: 20px 10%;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}

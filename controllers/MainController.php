@@ -11,11 +11,15 @@ class MainController {
         $router->renderView('main/index');
     }
     
-    public static function marketplace(Router $router) {
+    public static function marketplace(Router $router, $searchString = '') {
+        
 
         //getting all the products
-        $dummyArray = [['product' => 'product1'],['product' => 'product2'],['product' => 'product3']];
+        $allProducts = $router->dbConnection->getProductsBySeller();
 
+        //sets the number of displayed products on one page
+        $allProducts = array_chunk($allProducts, 6);
+      
         $currentPage = null;
 
         //get the current page number
@@ -23,8 +27,8 @@ class MainController {
             $currentPage = (int) explode('=', $_SERVER['QUERY_STRING'])[1];
         }
         
-        $pageContent = $currentPage ? $dummyArray[$currentPage - 1] : $dummyArray[0];
-        $pageCount = count($dummyArray);
+        $pageContent = $currentPage ? $allProducts[$currentPage - 1] : $allProducts[0];
+        $pageCount = count($allProducts);
     
         $router->renderView('main/marketplace', ['pageCount' => $pageCount, 'currentPage' => $currentPage, 'pageContent' => $pageContent]);
     }

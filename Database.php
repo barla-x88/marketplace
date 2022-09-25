@@ -82,6 +82,10 @@ class Database {
 
     }
 
+    public function deleteProduct($id) {
+        
+    }
+
     //can also be used to get all the products from all sellers
     public function getProductsBySeller(string $seller=''): array {
         

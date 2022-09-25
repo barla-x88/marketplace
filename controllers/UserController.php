@@ -116,6 +116,7 @@ class UserController {
 
                 $newProduct = new Product($product_data);
                 $newProduct->saveProduct();
+                header('Location: /user');
             
             } else {
                 $router->renderView('users/addproduct');

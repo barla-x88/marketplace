@@ -43,9 +43,13 @@
             </p>
         </div>
     </div>
+<?php if($_SESSION['userType'] === 'SELLER'): ?>
     <div class="user-products">
         <h2>My Products</h2>
         <div class="products-container">
+            <?php if (empty($userProducts)): ?>
+                <p style="font-size: 22px; min-height: 20vh; display: flex; align-items: center;">Opps.. 🦉️ no products, Start adding one.</p>
+            <?php endif; ?>
             <?php if(!empty($userProducts)): ?>
                 <?php foreach($userProducts as $product): ?>
                     <div class="product">
@@ -66,5 +70,6 @@
                     <a class="btn btn-success" href="/user/addproduct">Add a Proudct</a>
             <?php endif; ?>
     </div>
+<?php endif; ?>
 </div>
 

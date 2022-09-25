@@ -57,8 +57,8 @@ nav ul a {
 
 .page-container {
   width: 80%;
-  margin: 0 auto;
-  background-color: #efefef;
+  margin: 20px auto;
+  background-color: rgba(32, 30, 30, 0.596);
 }
 
 .profile {
@@ -66,7 +66,8 @@ nav ul a {
   grid-template-rows: 70vh;
   grid-template-columns: 30% 70%;
   margin: 0 30px;
-  border-radius: 20px;
+  color: white;
+  font-weight: bold;
 }
 
 .user-img,
@@ -81,7 +82,7 @@ nav ul a {
 
 .user-img {
   align-items: center;
-  border: 2px solid #b5d0e1;
+  border: 3px groove #b5d0e1;
   border-radius: 20px;
 }
 
@@ -117,10 +118,10 @@ nav ul a {
 .user-details h1 {
   border-style: solid;
   border-width: 2px 0;
-  border-color: #007bff;
+  border-color: #fff;
   background-color: rgba(231, 176, 99, 0.819);
   padding: 5px 20px;
-  color: #112b3c;
+  color: #fff;
 }
 
 .user-details > p {
@@ -143,23 +144,32 @@ nav ul a {
   background-color: rgb(38, 38, 38);
   width: 100%;
   color: #ffffff;
-
+  padding-bottom: 20px;
   /* prevents margin collapsing */
-  border-top: 1px solid;
+  border-top: 1px solid rgb(38, 38, 38);
 }
 
-.user-products > h2 {
+.user-products h2 {
   margin-top: 20px;
   text-align: center;
 }
 
+span.email a {
+  color: #fff;
+}
+
 .products-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin: 0 10%;
   flex: 1 1 auto;
   gap: 18px;
   padding-bottom: 35px;
+  /* align-items: center; */
+  min-height: 300px;
+  flex-basis: auto;
+  flex-shrink: 0;
 }
 
 .product {
@@ -171,6 +181,8 @@ nav ul a {
   flex-direction: column;
   padding: 10px;
   font-family: 'Montserrat Alternates', sans-serif;
+  text-align: center;
+  min-width: 250px;
 }
 
 .btn-success {
