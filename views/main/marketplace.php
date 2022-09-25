@@ -8,8 +8,16 @@
         </ul>
 </nav>
 <div class="products-container">
+    <?php
+    $alert = '';
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && empty($pageContent)) {
+        $alert = 'Opps.. 🦉️ No results found for your search term';
+    } else {
+        $alert = "Opps.. 🦉️ Currently there are no products for Sale<br> Check back Later.";
+    }
+    ?>
     <?php if (empty($pageContent)): ?>
-        <p style="font-size: 22px; min-height: 20vh; display: flex; align-items: center;">Opps.. 🦉️ Currently there are no products for<br> Check back Later.</p>
+        <p class="alert" style="font-size: 22px; min-height: 20vh; display: flex; align-items: center;"><?php echo $alert ?></p>
     <?php endif; ?>
     <?php if(!empty($pageContent)): ?>
         <?php foreach($pageContent as $product): ?>
@@ -20,7 +28,7 @@
                 <p>Category - <?php echo $product['product_category'] ?></p>
                 <p>Date Added - <?php echo $product['product_date'] ?></p>
                 <form action="/main/showproduct" method="POST">
-                    <input type="hidden" value="<?php echo $product['product_id'] ?>">
+                    <input type="hidden" name="product_id" value="<?php echo $product['product_id'] ?>">
                     <input type="submit" class="btn btn-primary" value="Show Product">
                 </form>
             </div>

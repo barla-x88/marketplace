@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap");
 
 body {
   background-color: #112b3c;
@@ -24,8 +24,8 @@ nav > a {
   margin-left: 35px;
   color: #f66b0e;
   font-size: 40px;
-  font-family: 'Calligraffitti', cursive;
-  transition: all 0.25s;
+  font-family: "Calligraffitti", cursive;
+  transition: color 0.25s;
 }
 
 nav a:hover {
@@ -40,7 +40,7 @@ nav ul {
   width: 604px;
   justify-content: space-around;
   align-items: center;
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: "Montserrat Alternates", sans-serif;
   font-size: 25px;
   color: #ffffff;
 }
@@ -58,7 +58,7 @@ div.header {
   /* using linear gradient to put use color and image together */
   /* https://stackoverflow.com/questions/64773693/background-image-along-with-background-color-problem */
   background: linear-gradient(rgba(21, 19, 19, 0.7), rgba(21, 19, 19, 0.7)),
-    url('/img/site/ella-jardim-jmGH6r8K5Ak-unsplash.jpg');
+    url("/img/site/ella-jardim-jmGH6r8K5Ak-unsplash.jpg");
   background-size: cover;
   background-attachment: fixed;
   height: 100vh;
@@ -89,7 +89,7 @@ div.header {
   padding: 20px;
   border: 1px solid #f66b0e;
   border-radius: 45px;
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: "Montserrat Alternates", sans-serif;
   text-align: center;
   font-size: 20px;
 }
@@ -102,6 +102,6 @@ h1 {
   font-size: 32px;
   text-align: center;
   font-weight: normal;
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: "Montserrat Alternates", sans-serif;
   color: #ffffff;
 }

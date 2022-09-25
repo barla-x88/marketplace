@@ -10,7 +10,7 @@
     </nav>
     <div class="search">
     <h1>Support Local communities By Buying Locally Produced Quality Products </h1>
-    <form action="/main/marketplace">
+    <form action="/main/marketplace" method="POST">
         <input type="search" name="q" id="" placeholder="Search Products ...">
     </form>
     </div>

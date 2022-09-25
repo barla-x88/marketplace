@@ -24,10 +24,17 @@ $router->post('/user/register', [UserController::class, 'register']);
 $router->get('/user/register', [UserController::class, 'register']);
 $router->get('/user/addproduct', [UserController::class, 'addProduct']);
 $router->post('/user/addproduct', [UserController::class, 'addProduct']);
+$router->post('/user/deleteproduct', [UserController::class, 'deleteProduct']);
 
 
 //Index pages
 $router->get('/', [MainController::class, 'index']);
 $router->get('/main/marketplace', [MainController::class, 'marketplace']);
+
+//for search
+$router->post('/main/marketplace', [MainController::class, 'marketplace']);
+
+//display product 
+$router->post('/main/showproduct', [MainController::class, 'showProduct']);
 
 $router->resolve();

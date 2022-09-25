@@ -58,8 +58,8 @@
                         <p>Price - <?php echo $product['product_price'] ?></p>
                         <p>Category - <?php echo $product['product_category'] ?></p>
                         <p>Date Added - <?php echo $product['product_date'] ?></p>
-                        <form action="/user/deletproduct" method="POST">
-                            <input type="hidden" value="<?php echo $product['product_id'] ?>">
+                        <form action="/user/deleteproduct" method="POST">
+                            <input type="hidden" name="id" value="<?php echo $product['product_id'] ?>">
                             <input type="submit" class="btn btn-danger" value="Delete">
                         </form>
                     </div>

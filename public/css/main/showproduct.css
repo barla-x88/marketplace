@@ -57,38 +57,53 @@ nav ul a {
 
 .products-container {
   background-color: rgb(38, 38, 38);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-content: space-between;
+  display: grid;
+  grid-template-rows: min-content;
+  grid-template-columns: 45% 45%;
   margin: 0 10%;
-  flex: 0 0 auto;
-  gap: 120px;
   padding: 35px;
   min-height: 70vh;
+  gap: 0px 10%;
 }
 
-.product {
+.product-img {
   display: flex;
-  background-color: #ffffff;
-  color: black;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  padding: 10px;
-  font-family: "Montserrat Alternates", sans-serif;
+  background-color: rgba(255, 255, 255, 0.542);
+  backdrop-filter: blur(10px);
+}
+
+.product-img p {
   text-align: center;
-  width: 250px;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: #fff;
 }
 
-.pagination {
-  margin: 20px 10%;
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-}
-
-.alert {
-  margin: 0 auto;
+.product-info {
+  border-left: 2px solid rgba(246, 107, 14, 0.68);
   color: white;
+  padding-left: 15px;
+}
+
+.product-info p span {
+  color: white;
+  display: block;
+  font-size: 30px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.product-info p {
+  margin-bottom: 25px;
+  font-size: 16px;
+  text-transform: capitalize;
+  width: 80%;
+}
+
+.product-info p:last-child {
+  border-top: 1.5px solid rgba(246, 107, 14, 0.68);
+  padding-top: 10px;
 }

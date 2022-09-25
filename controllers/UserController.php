@@ -126,7 +126,9 @@ class UserController {
         }
     }
 
-    static public function editProduct() {
-        
+    static public function deleteProduct(Router $router) {
+        if($_POST['id']) {
+            $router->dbConnection->deleteProduct($_POST['id']);
+        }
     }
 }

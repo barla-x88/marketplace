@@ -83,7 +83,21 @@ class Database {
     }
 
     public function deleteProduct($id) {
+        $statement = $this->pdo->prepare('SELECT product_image FROM products WHERE product_id = :product_id');
+        $statement->bindValue(':product_id', $id);
+        $statement->execute();
+        $product = $statement->fetch(PDO::FETCH_ASSOC);
         
+        //delete image first 
+        $imagePath =  __DIR__ . "/public/" . $product['product_image'];
+        $deleted = unlink($imagePath);
+        if ($deleted) {
+            $statement = $this->pdo->prepare('DELETE FROM products WHERE product_id = :id');
+            $statement->bindValue(':id', $id);
+            $statement->execute();
+
+            header('Location: /user');
+        }
     }
 
     //can also be used to get all the products from all sellers
@@ -101,5 +115,25 @@ class Database {
        
         return $products;
 
+    }
+
+
+    public function getProductById(int $product_id) {
+        $statement = $this->pdo->prepare('SELECT product_name, seller_id, product_desc, product_image, product_price, product_category FROM products WHERE product_id = :product_id');
+        $statement->bindValue(':product_id', $product_id);
+        $statement->execute();
+        $product = $statement->fetch(PDO::FETCH_ASSOC);
+       
+        return $product;
+    }
+
+    public function searchProduct(string $searchString) {
+        $searchString = "%" . "$searchString" . "%";
+        $statement = $this->pdo->prepare('SELECT product_date, product_id, product_name, seller_id, product_desc, product_image, product_price, product_category FROM products WHERE product_name LIKE :searchString');
+        $statement->bindValue(':searchString', $searchString);
+        $statement->execute();
+        $products = $statement->fetchAll(PDO::FETCH_ASSOC);
+       
+        return $products;
     }
 }

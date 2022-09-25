@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap");
 
 body {
   background-color: #112b3c;
@@ -29,7 +29,7 @@ nav > a {
   margin-left: 35px;
   color: #f66b0e;
   font-size: 40px;
-  font-family: 'Calligraffitti', cursive;
+  font-family: "Calligraffitti", cursive;
   transition: color 0.25s;
 }
 
@@ -45,7 +45,7 @@ nav ul {
   width: 604px;
   justify-content: space-around;
   align-items: center;
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: "Montserrat Alternates", sans-serif;
   font-size: 25px;
   color: #ffffff;
 }
@@ -115,11 +115,14 @@ nav ul a {
   text-align: center;
 }
 
+.user-details {
+  padding-left: 15px;
+  border-left: 2px solid rgba(246, 107, 14, 0.68);
+}
+
 .user-details h1 {
   border-style: solid;
   border-width: 2px 0;
-  border-color: #fff;
-  background-color: rgba(231, 176, 99, 0.819);
   padding: 5px 20px;
   color: #fff;
 }
@@ -180,7 +183,7 @@ span.email a {
   align-items: center;
   flex-direction: column;
   padding: 10px;
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: "Montserrat Alternates", sans-serif;
   text-align: center;
   min-width: 250px;
 }
